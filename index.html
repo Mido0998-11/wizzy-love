@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WIZZY ❤️ روان</title>
+
+    <title>WIZZY ❤️ Rowan</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
 <div id="loader">
 
-<div class="spinner"></div>
+<div class="loader-circle"></div>
 
 <h2>WIZZY</h2>
 
@@ -22,9 +29,7 @@
 
 </div>
 
-<div class="background"></div>
-
-<div class="overlay"></div>
+<div id="stars"></div>
 
 <header>
 
@@ -34,7 +39,7 @@ WIZZY
 
 </h1>
 
-<p>
+<p class="subtitle">
 
 محمد ❤️ روان
 
@@ -44,35 +49,35 @@ WIZZY
 
 <main>
 
-<div class="profile">
+<section class="hero">
 
-<img src="assets/me.jpg" class="photo">
+<img src="assets/me.jpg" class="profile">
 
-<div class="love">
+<div class="heart">
 
 ❤️
 
 </div>
 
-<img src="assets/rowan.jpg" class="photo">
+<img src="assets/rowan.jpg" class="profile">
 
-</div>
+</section>
+
+<section class="message">
 
 <h2 id="typing"></h2>
 
-<div class="timer">
+</section>
 
-<h3>
+<section class="timer">
 
-مدة علاقتنا
-
-</h3>
+<h3>مدة الحب</h3>
 
 <p id="counter"></p>
 
-</div>
+</section>
 
-<div class="buttons">
+<section class="buttons">
 
 <button id="musicBtn">
 
@@ -82,45 +87,25 @@ WIZZY
 
 <button id="loveBtn">
 
-❤️ اضغط هنا
+❤️ Surprise
 
 </button>
 
-</div>
-
-<div id="message">
-
-<p>
-
-أحبك يا روان...
-
-أنت أجمل شيء حدث في حياتي.
-
-💖
-
-</p>
-
-</div>
+</section>
 
 </main>
 
 <footer>
 
-<p>
-
-Made With ❤️ By WIZZY
-
-</p>
+Made with ❤️ by WIZZY
 
 </footer>
 
-<audio id="music" loop>
+<audio id="music">
 
 <source src="assets/music.mp3" type="audio/mpeg">
 
 </audio>
-
-<canvas id="canvas"></canvas>
 
 <script src="script.js"></script>
 
