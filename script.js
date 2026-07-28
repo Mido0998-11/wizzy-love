@@ -1,74 +1,113 @@
+// ==========================
+// WIZZY LOVE PROJECT
+// ==========================
+
 // شاشة التحميل
 window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-    }, 2000);
+
+const loader=document.getElementById("loader");
+
+setTimeout(()=>{
+
+loader.style.opacity="0";
+
+loader.style.transition="1s";
+
+setTimeout(()=>{
+
+loader.style.display="none";
+
+},1000);
+
+},1800);
+
 });
 
+// ==========================
 // الكتابة المتحركة
-const text =
-"أهلاً بك في عالم WIZZY ❤️\nهذا الموقع صُمم بكل حب من محمد إلى روان.";
+// ==========================
 
-let index = 0;
-const typing = document.getElementById("typing");
+const message=`مرحباً روان ❤️
 
-function typeWriter() {
-    if (!typing) return;
+هذا الموقع صُمم خصيصاً لك.
 
-    if (index < text.length) {
-        typing.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 60);
-    }
+كل لحظة معك أجمل من التي قبلها.
+
+محمد | WIZZY`;
+
+const typing=document.getElementById("typing");
+
+let index=0;
+
+function type(){
+
+if(index<message.length){
+
+typing.innerHTML+=message.charAt(index);
+
+index++;
+
+setTimeout(type,55);
+
 }
 
-typeWriter();
+}
 
+type();
+
+
+// ==========================
 // عداد العلاقة
-const startDate = new Date("2026-07-14T00:00:00");
+// ==========================
 
-function updateCounter() {
+const startDate=new Date("2026-07-14");
 
-    const now = new Date();
+function timer(){
 
-    const diff = now - startDate;
+const now=new Date();
 
-    const days = Math.floor(diff / 86400000);
+const diff=now-startDate;
 
-    const hours = Math.floor(diff / 3600000) % 24;
+const days=Math.floor(diff/1000/60/60/24);
 
-    const minutes = Math.floor(diff / 60000) % 60;
+const hours=Math.floor(diff/1000/60/60)%24;
 
-    const seconds = Math.floor(diff / 1000) % 60;
+const minutes=Math.floor(diff/1000/60)%60;
 
-    const counter = document.getElementById("counter");
+const seconds=Math.floor(diff/1000)%60;
 
-    if(counter){
+document.getElementById("counter").innerHTML=
 
-        counter.innerHTML =
-        `${days} يوم | ${hours} ساعة | ${minutes} دقيقة | ${seconds} ثانية`;
+`${days} يوم
 
-    }
+${hours} ساعة
+
+${minutes} دقيقة
+
+${seconds} ثانية`;
 
 }
 
-setInterval(updateCounter,1000);
+setInterval(timer,1000);
 
-updateCounter();
+timer();
 
+
+// ==========================
 // الموسيقى
-const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicBtn");
+// ==========================
 
-if(musicBtn){
+const music=document.getElementById("music");
 
-musicBtn.onclick=function(){
+const musicBtn=document.getElementById("musicBtn");
+
+musicBtn.onclick=()=>{
 
 if(music.paused){
 
 music.play();
 
-musicBtn.innerHTML="⏸️ إيقاف الموسيقى";
+musicBtn.innerHTML="⏸️ إيقاف";
 
 }else{
 
@@ -80,63 +119,67 @@ musicBtn.innerHTML="🎵 تشغيل الموسيقى";
 
 };
 
-}
 
+// ==========================
 // زر الحب
+// ==========================
+
 const loveBtn=document.getElementById("loveBtn");
 
-if(loveBtn){
+loveBtn.onclick=()=>{
 
-loveBtn.onclick=function(){
+for(let i=0;i<80;i++){
 
-createHearts(80);
+heart();
+
+}
 
 alert("❤️ أحبك يا روان ❤️");
 
 };
 
-}
 
-// إنشاء القلوب
-function createHearts(number){
+// ==========================
+// سقوط القلوب
+// ==========================
 
-for(let i=0;i<number;i++){
+function heart(){
 
-const heart=document.createElement("div");
+const h=document.createElement("div");
 
-heart.innerHTML="❤️";
+h.innerHTML="❤️";
 
-heart.style.position="fixed";
+h.style.position="fixed";
 
-heart.style.left=Math.random()*window.innerWidth+"px";
+h.style.left=Math.random()*window.innerWidth+"px";
 
-heart.style.top="-30px";
+h.style.top="-20px";
 
-heart.style.fontSize=(20+Math.random()*35)+"px";
+h.style.fontSize=(20+Math.random()*30)+"px";
 
-heart.style.pointerEvents="none";
+h.style.pointerEvents="none";
 
-heart.style.zIndex="9999";
+h.style.zIndex="999";
 
-document.body.appendChild(heart);
+document.body.appendChild(h);
 
-let y=-30;
+let y=-20;
 
-let speed=2+Math.random()*5;
+const speed=2+Math.random()*4;
 
-const move=setInterval(()=>{
+const fall=setInterval(()=>{
 
 y+=speed;
 
-heart.style.top=y+"px";
+h.style.top=y+"px";
 
-heart.style.transform=`rotate(${y}deg)`;
+h.style.transform=`rotate(${y}deg)`;
 
 if(y>window.innerHeight){
 
-heart.remove();
+clearInterval(fall);
 
-clearInterval(move);
+h.remove();
 
 }
 
@@ -144,16 +187,17 @@ clearInterval(move);
 
 }
 
-}
-
-// قلوب مستمرة
 setInterval(()=>{
 
-createHearts(2);
+heart();
 
-},700);
+},600);
 
-// تأثير تحريك الماوس
+
+// ==========================
+// تأثير المؤشر
+// ==========================
+
 document.addEventListener("mousemove",(e)=>{
 
 const dot=document.createElement("div");
@@ -164,9 +208,9 @@ dot.style.left=e.clientX+"px";
 
 dot.style.top=e.clientY+"px";
 
-dot.style.width="8px";
+dot.style.width="6px";
 
-dot.style.height="8px";
+dot.style.height="6px";
 
 dot.style.background="cyan";
 
@@ -182,6 +226,6 @@ setTimeout(()=>{
 
 dot.remove();
 
-},500);
+},400);
 
 });
