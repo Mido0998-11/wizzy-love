@@ -1,3 +1,7 @@
+/* =========================
+   WIZZY LOVE STYLE
+========================= */
+
 *{
 margin:0;
 padding:0;
@@ -5,217 +9,403 @@ box-sizing:border-box;
 font-family:'Cairo',sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-background:#050816;
+
+background:linear-gradient(135deg,#030712,#071b3d,#020617);
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
+
 color:#fff;
-overflow:hidden;
-height:100vh;
+
+overflow-x:hidden;
+
+min-height:100vh;
+
 }
 
-.background{
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at top,#0b2b52,#050816 70%);
-z-index:-3;
-}
+/* خلفية النجوم */
 
-.overlay{
+#stars{
+
 position:fixed;
+
+top:0;
+left:0;
+
 width:100%;
 height:100%;
-background:rgba(0,0,0,.25);
+
+background-image:
+radial-gradient(#ffffff 1px,transparent 1px);
+
+background-size:40px 40px;
+
+opacity:.25;
+
 z-index:-2;
+
+animation:starsMove 60s linear infinite;
+
 }
+
+/* شاشة التحميل */
 
 #loader{
+
 position:fixed;
+
+top:0;
+left:0;
+
 width:100%;
 height:100%;
+
 background:#000;
+
 display:flex;
-flex-direction:column;
+
 justify-content:center;
+
 align-items:center;
-z-index:99999;
+
+flex-direction:column;
+
+z-index:9999;
+
 }
 
-.spinner{
-width:80px;
-height:80px;
-border:6px solid #222;
-border-top:6px solid cyan;
+.loader-circle{
+
+width:90px;
+height:90px;
+
 border-radius:50%;
-animation:spin 1s linear infinite;
-}
 
-@keyframes spin{
-100%{
-transform:rotate(360deg);
-}
+border:6px solid rgba(255,255,255,.15);
+
+border-top:6px solid cyan;
+
+animation:spin 1s linear infinite;
+
+margin-bottom:20px;
+
 }
 
 header{
+
+padding:40px 20px;
+
 text-align:center;
-padding:30px;
+
 }
 
 .logo{
+
 font-size:70px;
+
 font-weight:900;
-letter-spacing:10px;
+
+letter-spacing:8px;
+
 color:#00eaff;
+
 text-shadow:
+
 0 0 10px cyan,
-0 0 30px cyan,
+
+0 0 25px cyan,
+
 0 0 60px cyan;
-animation:glow 2s infinite alternate;
+
+animation:logoGlow 2s infinite alternate;
+
 }
 
-header p{
+.subtitle{
+
 font-size:30px;
-margin-top:15px;
-color:#ff5fa2;
+
+margin-top:10px;
+
+color:#ff4da6;
+
+text-shadow:0 0 15px #ff4da6;
+
 }
 
 main{
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+
+width:100%;
+
+max-width:1200px;
+
+margin:auto;
+
 padding:20px;
+
+}
+
+.hero{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+margin-top:30px;
+
 }
 
 .profile{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:30px;
-margin:20px 0;
-}
 
-.photo{
 width:180px;
 height:180px;
+
 border-radius:50%;
+
 object-fit:cover;
+
 border:5px solid cyan;
+
 box-shadow:
+
 0 0 20px cyan,
-0 0 40px cyan;
-transition:.5s;
+
+0 0 45px cyan;
+
+transition:.4s;
+
 }
 
-.photo:hover{
-transform:scale(1.08);
+.profile:hover{
+
+transform:scale(1.08) rotate(3deg);
+
 }
 
-.love{
+.heart{
+
 font-size:90px;
-animation:heart 1s infinite;
+
+animation:heartBeat 1s infinite;
+
 }
 
-@keyframes heart{
-50%{
-transform:scale(1.3);
-}
+.message{
+
+margin-top:50px;
+
+text-align:center;
+
 }
 
 #typing{
+
 font-size:28px;
-text-align:center;
-max-width:800px;
-margin-top:20px;
-min-height:80px;
+
+line-height:50px;
+
+min-height:100px;
+
 }
 
 .timer{
-margin-top:30px;
+
+margin-top:40px;
+
 text-align:center;
+
 }
 
 .timer h3{
-font-size:30px;
+
+font-size:34px;
+
 margin-bottom:15px;
+
 }
 
 #counter{
-font-size:25px;
+
+font-size:24px;
+
 color:#00ffff;
+
 }
 
 .buttons{
-margin-top:35px;
+
+margin-top:40px;
+
 display:flex;
-gap:20px;
-flex-wrap:wrap;
+
 justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
 }
 
 button{
-padding:15px 35px;
-font-size:18px;
+
+padding:16px 35px;
+
 border:none;
+
 border-radius:50px;
+
+font-size:18px;
+
 cursor:pointer;
-background:#00e5ff;
+
+background:#00d4ff;
+
 font-weight:bold;
-transition:.4s;
+
+transition:.3s;
+
 }
 
 button:hover{
-transform:scale(1.1);
-box-shadow:0 0 25px cyan;
-}
 
-#message{
-margin-top:35px;
-padding:25px;
-border-radius:20px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(10px);
-max-width:700px;
-text-align:center;
-font-size:22px;
-line-height:40px;
-box-shadow:0 0 20px rgba(0,255,255,.3);
+transform:translateY(-5px);
+
+box-shadow:0 0 25px cyan;
+
 }
 
 footer{
-position:fixed;
-bottom:15px;
-width:100%;
+
+margin:50px 0 20px;
+
 text-align:center;
-font-size:15px;
+
 color:#aaa;
+
 }
 
-canvas{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:-1;
+/* الأنيميشن */
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
 }
 
-@keyframes glow{
+}
+
+@keyframes heartBeat{
+
+50%{
+
+transform:scale(1.25);
+
+}
+
+}
+
+@keyframes logoGlow{
 
 from{
 
 text-shadow:
-0 0 10px cyan;
+0 0 15px cyan;
 
 }
 
 to{
 
 text-shadow:
-0 0 20px cyan,
-0 0 40px cyan,
-0 0 80px cyan;
+0 0 25px cyan,
+0 0 60px cyan,
+0 0 100px cyan;
+
+}
+
+}
+
+@keyframes starsMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-800px);
+
+}
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
+
+/* للجوال */
+
+@media(max-width:768px){
+
+.logo{
+
+font-size:48px;
+
+}
+
+.subtitle{
+
+font-size:22px;
+
+}
+
+.profile{
+
+width:140px;
+height:140px;
+
+}
+
+#typing{
+
+font-size:20px;
+
+}
+
+button{
+
+width:90%;
 
 }
 
